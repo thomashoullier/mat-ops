@@ -14,7 +14,7 @@
 ## Implementation choices
 * Matrices are represented with native 2D arrays. The first dimension is rows,
   the second dimension is columns.
-* Vectors must be cast as matrices, this is for sake of uniformity and to be
+* Vectors must be cast as matrices, this is for the sake of uniformity and to be
   able to distinguish between row and column vectors.
 * Operations are functional by default.
 
