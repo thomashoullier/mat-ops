@@ -10,7 +10,13 @@
   "Number of columns in matrix A."
   (array-dimension A 1))
 
-;; (defun transpose )
+(defun transpose (A)
+  "Transpose the matrix A."
+  (let ((B (make-array (list (ncols A) (nrows A)))))
+    (loop for i from 0 below (nrows B) do
+      (loop for j from 0 below (ncols B) do
+        (setf (aref B i j) (aref A j i))))
+    B))
 
 ;; (defun make-vec )
 

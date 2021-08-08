@@ -6,12 +6,15 @@
 (let ((a #2A((1 2) (3 4) (-2 3)))
       (b #2A((3 3) (1 9)))
       (c #2A((5 21) (13 45) (-3 21)))
-      (d #2A((4 8) (12 16) (-8 12))))
+      (d #2A((4 8) (12 16) (-8 12)))
+      (e #2A((1 3 -2) (2 4 3))))
   (deftest utilities
     (testing "nrows"
       (ok (= 3 (mat-ops:nrows a)) ""))
     (testing "ncols"
-      (ok (= 2 (mat-ops:ncols a)) "")))
+      (ok (= 2 (mat-ops:ncols a)) ""))
+    (testing "transpose"
+      (ok (equalp e (mat-ops:transpose a)) "")))
   (deftest arithmetic
     (testing "mul"
       (ok (equalp c (mat-ops:mul a b)) ""))

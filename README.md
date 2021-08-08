@@ -28,12 +28,18 @@ Returns the number of rows in the matrix.
 
 Returns the number of columns in the matrix.
 
+**transpose** mat => trans-mat
+
+Transpose the matrix.
+
 ```common-lisp
 (defparameter *a* #2A((1 2) (3 4) (-2 3)))
 (nrows *a*)
 ;; => 3
 (ncols *a*)
 ;; => 2
+(transpose *a*)
+;; => #2A((1 3 -2) (2 4 3))
 ```
 
 ### Arithmetic
