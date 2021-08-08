@@ -32,6 +32,11 @@ Returns the number of columns in the matrix.
 
 Transpose the matrix.
 
+**make-matvec** vec dim => 2dvec
+
+Generate a row or column 2D matrix from a 1D vector.
+dim is 0 for a column vector, 1 for a row vector.
+
 ```common-lisp
 (defparameter *a* #2A((1 2) (3 4) (-2 3)))
 (nrows *a*)
@@ -40,6 +45,12 @@ Transpose the matrix.
 ;; => 2
 (transpose *a*)
 ;; => #2A((1 3 -2) (2 4 3))
+
+(defparameter *vec* #(1 2 3 4))
+(make-matvec *vec* 0)
+;; => #2A((1) (2) (3) (4))
+(make-matvec *vec* 1)
+;; => #2A((1 2 3 4))
 ```
 
 ### Arithmetic

@@ -4,6 +4,7 @@
    ;; Utilities
    #:nrows #:ncols
    #:transpose
+   #:make-matvec
    ;; Arithmetic
    #:mul
    #:scal-mul))

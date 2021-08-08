@@ -18,7 +18,18 @@
         (setf (aref B i j) (aref A j i))))
     B))
 
-;; (defun make-vec )
+(defun make-matvec (vec dim)
+  "Create a 2D matrix containing the vector in arr.
+   dim is 0 for a column vector, 1 for a row vector."
+  (let ((matvec))
+    (ecase dim
+      (0 (setf matvec (make-array (list (length vec) 1)))
+       (loop for i from 0 below (nrows matvec) do
+         (setf (aref matvec i 0) (aref vec i))))
+      (1 (setf matvec (make-array (list 1 (length vec))))
+       (loop for j from 0 below (ncols matvec) do
+         (setf (aref matvec 0 j) (aref vec j)))))
+    matvec))
 
 ;;; Arithmetic
 (defun mul (A B)
@@ -33,13 +44,6 @@
               (loop for k from 0 below nsums
                     sum (* (aref A i k) (aref B k j))))))
     C))
-
-;; (defun add (A B)
-;;   "Matrix element-wise addition A+B. The matrices must have the same size."
-;;   (when (not (equal (array-dimensions A) (array-dimensions B)))
-;;     (error "add: matrices must be of identical size."))
-
-;;   )
 
 (defun scal-mul (scal A)
   "Scalar-matrix multiplication."
