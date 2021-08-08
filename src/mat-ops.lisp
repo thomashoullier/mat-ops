@@ -10,6 +10,10 @@
   "Number of columns in matrix A."
   (array-dimension A 1))
 
+;; (defun transpose )
+
+;; (defun make-vec )
+
 ;;; Arithmetic
 (defun mul (A B)
   "Matrix multiplication A.B"
@@ -30,3 +34,11 @@
 ;;     (error "add: matrices must be of identical size."))
 
 ;;   )
+
+(defun scal-mul (scal A)
+  "Scalar-matrix multiplication."
+  (let ((B (make-array (list (nrows A) (ncols A)))))
+    (loop for i from 0 below (nrows B) do
+      (loop for j from 0 below (ncols B) do
+        (setf (aref B i j) (* scal (aref A i j)))))
+    B))

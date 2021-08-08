@@ -16,6 +16,7 @@
   the second dimension is columns.
 * Vectors must be cast as matrices, this is for sake of uniformity and to be
   able to distinguish between row and column vectors.
+* Operations are functional by default.
 
 ## Usage
 ### Utilities
@@ -41,11 +42,17 @@ Returns the number of columns in the matrix.
 Compute the matrix multiplication C = A.B
 Error is signal upon dimension mismatch.
 
+**scal-mul** scal a => b
+
+Compute the scalar/matrix multiplication B = scal\*A.
+
 ```common-lisp
 (defparameter *a* #2A((1 2) (3 4) (-2 3)))
 (defparameter *b* #2A((3 3) (1 9)))
 (mul *a* *b*)
 ;; => #2A((5 21) (13 45) (-3 21))
+(scal-mul 4 *a*)
+;; => #2A((4 8) (12 16) (-8 12))
 ```
 
 ## Tests
@@ -61,3 +68,6 @@ Launch tests with:
   * [rove](https://github.com/fukamachi/rove)
 
 ## References
+
+## See also
+* [array-operations](https://github.com/bendudson/array-operations)

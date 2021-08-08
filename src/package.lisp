@@ -4,4 +4,5 @@
    ;; Utilities
    #:nrows #:ncols
    ;; Arithmetic
-   #:mul))
+   #:mul
+   #:scal-mul))
