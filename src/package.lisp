@@ -1,3 +1,4 @@
 (defpackage :mat-ops
   (:use :cl)
-  (:export ))
+  (:export #:nrows
+           #:ncols))

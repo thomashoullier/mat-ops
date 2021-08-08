@@ -18,6 +18,22 @@
   able to distinguish between row and column vectors.
 
 ## Usage
+### Utilities
+**nrows** mat => nrows
+
+Returns the number of rows in the matrix.
+
+**ncols** mat => ncols
+
+Returns the number of columns in the matrix.
+
+```common-lisp
+(defparameter *a* #2A((1 2) (3 4) (-2 3)))
+(nrows *a*)
+;; => 3
+(ncols *a*)
+;; => 2
+```
 
 ## Tests
 
