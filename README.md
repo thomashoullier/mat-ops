@@ -35,8 +35,29 @@ Returns the number of columns in the matrix.
 ;; => 2
 ```
 
+### Arithmetic
+**mul** a b => c
+
+Compute the matrix multiplication C = A.B
+Error is signal upon dimension mismatch.
+
+```common-lisp
+(defparameter *a* #2A((1 2) (3 4) (-2 3)))
+(defparameter *b* #2A((3 3) (1 9)))
+(mul *a* *b*)
+;; => #2A((5 21) (13 45) (-3 21))
+```
+
 ## Tests
+Launch tests with:
+
+```common-lisp
+(asdf:test-system "mat-ops")
+```
 
 ## Dependencies
+* `mat-ops`: None.
+* `mat-ops/test`:
+  * [rove](https://github.com/fukamachi/rove)
 
 ## References

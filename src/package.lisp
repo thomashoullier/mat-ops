@@ -1,4 +1,7 @@
 (defpackage :mat-ops
   (:use :cl)
-  (:export #:nrows
-           #:ncols))
+  (:export
+   ;; Utilities
+   #:nrows #:ncols
+   ;; Arithmetic
+   #:mul))
