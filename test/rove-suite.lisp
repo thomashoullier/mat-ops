@@ -21,6 +21,10 @@
     (testing "matvec"
       (ok (and (equalp colvec (mat-ops:make-matvec vec 0))
                (equalp rowvec (mat-ops:make-matvec vec 1))) "")))
+  (deftest predicates
+    (testing "squarep"
+      (ok (and (mat-ops:squarep b)
+               (not (mat-ops:squarep a))) "")))
   (deftest arithmetic
     (testing "mul"
       (ok (equalp c (mat-ops:mul a b)) ""))

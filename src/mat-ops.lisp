@@ -31,6 +31,11 @@
          (setf (aref matvec 0 j) (aref vec j)))))
     matvec))
 
+;;; Predicates
+(defun squarep (A)
+  "Is A square?"
+  (= (nrows A) (ncols A)))
+
 ;;; Arithmetic
 (defun mul (A B)
   "Matrix multiplication A.B"

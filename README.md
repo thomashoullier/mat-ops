@@ -53,6 +53,12 @@ dim is 0 for a column vector, 1 for a row vector.
 ;; => #2A((1 2 3 4))
 ```
 
+### Predicates
+**squarep** a => T or nil
+
+Is a matrix square? Taken as meaning same number of
+rows and columns.
+
 ### Arithmetic
 **mul** a b => c
 

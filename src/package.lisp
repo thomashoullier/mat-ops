@@ -5,6 +5,8 @@
    #:nrows #:ncols
    #:transpose
    #:make-matvec
+   ;; Predicates
+   #:squarep
    ;; Arithmetic
    #:mul
    #:scal-mul))
