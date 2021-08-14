@@ -37,6 +37,11 @@ Transpose the matrix.
 Generate a row or column 2D matrix from a 1D vector.
 dim is 0 for a column vector, 1 for a row vector.
 
+**ipiv-to-p** ipiv => p
+
+Convert a swap vector ipiv (as given by LAPACK, indices also start from 1)
+to a permutation vector, zero-indexed.
+
 ```common-lisp
 (defparameter *a* #2A((1 2) (3 4) (-2 3)))
 (nrows *a*)
@@ -51,6 +56,9 @@ dim is 0 for a column vector, 1 for a row vector.
 ;; => #2A((1) (2) (3) (4))
 (make-matvec *vec* 1)
 ;; => #2A((1 2 3 4))
+
+(ipiv-to-p #(3 3 3))
+;; => #(2 0 1)
 ```
 
 ### Predicates

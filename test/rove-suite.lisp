@@ -20,7 +20,9 @@
       (ok (equalp e (mat-ops:transpose a)) ""))
     (testing "matvec"
       (ok (and (equalp colvec (mat-ops:make-matvec vec 0))
-               (equalp rowvec (mat-ops:make-matvec vec 1))) "")))
+               (equalp rowvec (mat-ops:make-matvec vec 1))) ""))
+    (testing "ipiv-to-p"
+      (ok (equalp #(2 0 1) (mat-ops:ipiv-to-p #(3 3 3))) "")))
   (deftest predicates
     (testing "squarep"
       (ok (and (mat-ops:squarep b)

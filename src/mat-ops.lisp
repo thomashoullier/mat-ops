@@ -31,6 +31,24 @@
          (setf (aref matvec 0 j) (aref vec j)))))
     matvec))
 
+(defun ipiv-to-p (ipiv)
+  "Compute a permutation vector from a sequential swap vector ipiv.
+   ipiv are the swap vectors given by eg LAPACK.
+   Also ipiv indices start from 1 and we want p to start from 0.
+   Exemple: ipiv = [3 3 3] means:
+     * Swap row 1 with row 3
+     * Then swap row 2 with row 3.
+     * Do nothing on row 3.
+   The result permutation vector is p = [2 0 1]"
+  (let ((p (make-array (length ipiv))))
+    ;; Initialize p
+    (loop for i from 0 below (length p) do (setf (aref p i) i))
+    ;; Swap p elements according to ipiv.
+    (loop for swap across ipiv
+          for i from 0 below (length p) do
+            (rotatef (aref p i) (aref p (1- swap))))
+    p))
+
 ;;; Predicates
 (defun squarep (A)
   "Is A square?"
